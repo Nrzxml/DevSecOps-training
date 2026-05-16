@@ -104,8 +104,8 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/notes-app:latest .
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/notes-app:${{ github.sha }} .
+          docker build --pull -t ${{ secrets.DOCKERHUB_USERNAME }}/notes-app:latest .
+          docker build --pull -t ${{ secrets.DOCKERHUB_USERNAME }}/notes-app:${{ github.sha }} .
 
       - name: Push Image
         run: |

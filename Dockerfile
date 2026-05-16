@@ -1,6 +1,7 @@
-FROM python:3.11-alpine3.20
+FROM python:3.11-alpine3.23
 
 RUN addgroup -S app && adduser -S app -G app \
+    && apk update && apk upgrade --no-cache \
     && apk add --no-cache ca-certificates
 
 WORKDIR /app
