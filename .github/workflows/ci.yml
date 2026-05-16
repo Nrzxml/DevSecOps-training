@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
           pip install -r dev-requirements.txt
 
-      - run: pytest
+      - run: PYTHONPATH=. pytest
 
   sast:
     runs-on: ubuntu-latest
