@@ -36,8 +36,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: |
-          pip install bandit
+      - name: Install dev requirements
+        run: |
+          pip install -r dev-requirements.txt
+
+      - name: Run Bandit SAST
+        run: |
           bandit -r .
 
   sca:
