@@ -69,11 +69,11 @@ jobs:
 
       - name: Install Gitleaks
         run: |
-          wget https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks-linux-x64 -O gitleaks
-          chmod +x gitleaks
+          apt-get update
+          apt-get install -y gitleaks
 
       - name: Run Gitleaks
-        run: ./gitleaks detect --source . --verbose
+        run: gitleaks detect --source . --verbose
 
   build_and_push:
     runs-on: ubuntu-latest
