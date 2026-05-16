@@ -69,7 +69,7 @@ jobs:
 
       - name: Install Gitleaks
         run: |
-          curl -L https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks-linux-x64 -o gitleaks
+          wget https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks-linux-x64 -O gitleaks
           chmod +x gitleaks
 
       - name: Run Gitleaks
