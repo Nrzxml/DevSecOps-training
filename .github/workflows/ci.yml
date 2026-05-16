@@ -67,8 +67,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install Gitleaks
+        run: |
+          curl -L https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks-linux-x64 -o gitleaks
+          chmod +x gitleaks
+
       - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@v2
+        run: ./gitleaks detect --source . --verbose
 
   build_and_push:
     runs-on: ubuntu-latest
