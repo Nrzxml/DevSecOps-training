@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Upgrade pip, setuptools, wheel
+        run: python -m pip install --upgrade pip setuptools wheel
+
       - run: |
           pip install -r requirements.txt
           pip install -r dev-requirements.txt
@@ -35,6 +38,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Upgrade pip, setuptools, wheel
+        run: python -m pip install --upgrade pip setuptools wheel
 
       - name: Install dev requirements
         run: |
@@ -53,6 +59,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Upgrade pip, setuptools, wheel
+        run: python -m pip install --upgrade pip setuptools wheel
 
       - run: |
           pip install -r requirements.txt
@@ -115,5 +124,4 @@ jobs:
           image-ref: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/notes-app:latest
           format: table
           exit-code: 1
-          ignore-unfixed: true
           vuln-type: 'os,library'

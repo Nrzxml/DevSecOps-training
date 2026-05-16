@@ -6,6 +6,9 @@ RUN addgroup --system app && adduser --system --ingroup app app \
 
 WORKDIR /app
 
+# Upgrade pip, setuptools, wheel to fix known CVEs before installing requirements
+RUN python -m pip install --upgrade pip setuptools wheel
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
